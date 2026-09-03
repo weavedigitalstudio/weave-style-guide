@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "weave-style-guide/colours",
+  "title": "Style guide: Colours",
+  "category": "design",
+  "icon": "art",
+  "description": "Every palette colour with hex, RGB, HSL and CSS custom property, click to copy, and copy-all as CSS or JSON.",
+  "textdomain": "weave-style-guide",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {},
+  "render": "file:./render.php",
+  "style": "wsg"
+}

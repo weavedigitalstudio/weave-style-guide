@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "weave-style-guide/logo",
+  "title": "Style guide: Logo",
+  "category": "design",
+  "icon": "format-image",
+  "description": "Site logo plus the theme's primary, reversed and mark files on their surfaces.",
+  "textdomain": "weave-style-guide",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {},
+  "render": "file:./render.php",
+  "style": "wsg"
+}

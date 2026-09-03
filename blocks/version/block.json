@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "weave-style-guide/version",
+  "title": "Style guide: Version",
+  "category": "design",
+  "icon": "info-outline",
+  "description": "Theme name, version and theme.json date, so a review refers to a known state.",
+  "textdomain": "weave-style-guide",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {},
+  "render": "file:./render.php",
+  "style": "wsg"
+}

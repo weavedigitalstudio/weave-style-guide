@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "weave-style-guide/icons",
+  "title": "Style guide: Icons",
+  "category": "design",
+  "icon": "star-filled",
+  "description": "The site's registered icon set (WordPress 7.1 Icons API), name and slug, click to copy.",
+  "textdomain": "weave-style-guide",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {},
+  "render": "file:./render.php",
+  "style": "wsg"
+}

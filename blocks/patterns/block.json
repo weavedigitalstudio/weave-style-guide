@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "weave-style-guide/patterns",
+  "title": "Style guide: Patterns",
+  "category": "design",
+  "icon": "layout",
+  "description": "Every theme pattern rendered live with its title; optional category filter.",
+  "textdomain": "weave-style-guide",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "category": {
+      "type": "string",
+      "default": ""
+    },
+    "collapsed": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "render": "file:./render.php",
+  "style": "wsg"
+}

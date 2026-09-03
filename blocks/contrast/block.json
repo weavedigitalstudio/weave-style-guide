@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "weave-style-guide/contrast",
+  "title": "Style guide: Contrast",
+  "category": "design",
+  "icon": "visibility",
+  "description": "WCAG contrast ratios for every palette pairing, AA and AAA marked.",
+  "textdomain": "weave-style-guide",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "minimum": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "render": "file:./render.php",
+  "style": "wsg"
+}
