@@ -34,9 +34,13 @@
 .wsg-elements .wsg-el{margin-bottom:0}.wsg-el-meta{margin-top:.15rem}
 .wsg-radius-sample{height:96px;background:var(--wp--preset--color--surface-raised,#e9eef5);margin:1rem}
 .wsg-radius .wsg-meta{padding:0 1rem 1rem}
-.wsg-logo-card{padding:0}.wsg-logo-stage{display:flex;align-items:center;justify-content:center;min-height:160px;padding:var(--wp--preset--spacing--30,1.5rem)}
-.wsg-logo-stage svg,.wsg-logo-stage img{max-width:240px;max-height:96px;width:auto;height:auto}
-.wsg-logo-card figcaption{padding:.75rem 1rem;background:var(--wp--preset--color--surface,#fff);color:var(--wp--preset--color--text,#111)}
+.wsg-logo-card{padding:0}.wsg-logo-stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:160px;padding:var(--wp--preset--spacing--30,1.5rem) var(--wp--preset--spacing--30,1.5rem) 2rem}
+.wsg-logo-stages{display:grid;grid-template-columns:1fr 1fr}.wsg-logo-stages.is-single{grid-template-columns:1fr}
+.wsg-logo-stage + .wsg-logo-stage{border-left:1px solid var(--wp--preset--color--border,#ddd)}
+.wsg-stage-label{position:absolute;left:.6rem;bottom:.45rem;font-size:.6875rem;line-height:1;opacity:.7}
+.wsg-logo-stage svg{max-width:240px;max-height:96px;width:auto;height:auto}
+.wsg-logo-stage img{display:block;width:100%;max-width:220px;height:80px;object-fit:contain}
+.wsg-logo-card figcaption{padding:.75rem 1rem;background:var(--wp--preset--color--surface,#fff);color:var(--wp--preset--color--text,#111);border-top:1px solid var(--wp--preset--color--border,#ddd)}
 .wsg-icon{display:flex;flex-direction:column;align-items:center;gap:.5rem;padding:1rem .5rem;cursor:pointer;font:inherit;color:inherit}
 .wsg-icon svg{fill:currentColor}
 .wsg-scroll{overflow-x:auto}
@@ -61,3 +65,4 @@
 .wsg-grid-overlays{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}.wsg-overlay-stage{position:relative;aspect-ratio:2/1}.wsg-overlay-panel{position:absolute;inset:22% 10%;border-radius:var(--wp--custom--radius--small,6px)}
 .wsg-dark-stage{padding:var(--wp--preset--spacing--30,1.5rem);border-radius:var(--wp--custom--radius--panel,8px);margin-top:var(--wp--preset--spacing--10,.5rem)}
 .wsg-now{color:var(--wp--preset--color--accent,#c8641e)}
+@media (max-width:600px){.wsg-logo-stages{grid-template-columns:1fr}.wsg-logo-stage + .wsg-logo-stage{border-left:0;border-top:1px solid var(--wp--preset--color--border,#ddd)}}

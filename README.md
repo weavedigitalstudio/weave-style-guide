@@ -22,7 +22,7 @@ The page is a pattern (`weave-style-guide/page`), so it can also be inserted by 
 | Block | Source |
 |---|---|
 | version | Theme name and version, theme.json modified time, WordPress version |
-| logo | Site Logo (customizer) plus `assets/logo/primary.svg`, `reversed.svg`, `mark.svg` in the theme, shown on their surfaces, with download links |
+| logo | Site Logo plus `assets/logo/primary.svg`, `reversed.svg`, `mark.svg` in the theme, with download links. Logos go on white and on the site's background colour (`surface`, or the global styles background when the theme has no `surface`), as one panel when that background is white. `reversed.svg` is made for dark, so it sits on `surface-inverse` |
 | colours | `settings.color.palette.theme`: swatch, name, hex, RGB, HSL, CSS custom property, click to copy; copy the palette as CSS or JSON |
 | type | `fontFamilies`, `fontSizes` (desktop and mobile range for fluid sizes) on real text; h1 to h6 and body as global styles set them |
 | spacing | `spacingSizes` as bars; `custom.radius` if present |

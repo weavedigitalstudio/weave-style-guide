@@ -13,6 +13,28 @@ function wsg_palette(): array {
 	return array_values( array_filter( $p, fn( $c ) => ! empty( $c['slug'] ) && ! empty( $c['color'] ) ) );
 }
 
+/** A theme palette colour by slug, or '' when the theme doesn't have it. */
+function wsg_palette_colour( string $slug ): string {
+	foreach ( wsg_palette() as $c ) { if ( $c['slug'] === $slug ) { return (string) $c['color']; } }
+	return '';
+}
+
+/**
+ * The site's background colour as [ value, name ]: surface when the theme has it, otherwise the
+ * global styles background (a preset reference followed to the palette), otherwise white.
+ */
+function wsg_site_background(): array {
+	$surface = wsg_palette_colour( 'surface' );
+	if ( '' !== $surface ) { return array( $surface, 'surface' ); }
+	$bg = trim( (string) ( wsg_styles()['color']['background'] ?? '' ) );
+	if ( preg_match( '/^(?:var\(--wp--preset--color--([a-z0-9-]+)\)|var:preset\|color\|([a-z0-9-]+))$/i', $bg, $m ) ) {
+		$slug  = '' !== $m[1] ? $m[1] : ( $m[2] ?? '' );
+		$value = wsg_palette_colour( $slug );
+		return '' !== $value ? array( $value, $slug ) : array( '#ffffff', 'white' );
+	}
+	return '' !== $bg ? array( $bg, $bg ) : array( '#ffffff', 'white' );
+}
+
 function wsg_font_families(): array { return wsg_settings()['typography']['fontFamilies']['theme'] ?? array(); }
 function wsg_font_sizes(): array { return wsg_settings()['typography']['fontSizes']['theme'] ?? array(); }
 function wsg_spacing_sizes(): array { return wsg_settings()['spacing']['spacingSizes']['theme'] ?? array(); }
