@@ -1,6 +1,7 @@
 /* Weave Style Guide. Everything token-driven; the page inherits the theme. */
 .wsg{margin-block:var(--wp--preset--spacing--30,1.5rem) var(--wp--preset--spacing--70,6rem)}
 .wsg-h2{margin-top:var(--wp--preset--spacing--60,4rem)}
+p.wsg-version{font-size:1rem;color:var(--wp--preset--color--text-muted,#666);margin:0}
 .wsg-grid{display:grid;gap:var(--wp--preset--spacing--20,1rem);grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
 .wsg-grid-logos{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
 .wsg-grid-families{grid-template-columns:1fr}
