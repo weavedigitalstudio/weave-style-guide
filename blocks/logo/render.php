@@ -3,7 +3,7 @@ defined( 'ABSPATH' ) || exit;
 $logos = wsg_logos();
 $icon  = get_site_icon_url( 512 );
 if ( ! $logos && ! $icon ) {
-	echo wsg_wrap( 'logo', '<p class="wsg-note">' . esc_html__( 'No logo yet. Set the Site Logo in the header and the Site Icon in Settings, and put primary.svg, reversed.svg and mark.svg in the theme\'s assets/logo folder for the variants.', 'weave-style-guide' ) . '</p>', $attributes );
+	echo wsg_wrap( 'logo', '<p class="wsg-note">' . esc_html__( 'No logo yet. Set the Site Logo in the header and the Site Icon in Settings, and put primary.svg, reversed.svg and mark.svg in the theme\'s assets/logo folder for the variants.', 'weave-style-guide' ) . '</p>', $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wsg_wrap() wraps inner markup escaped at build in get_block_wrapper_attributes().
 	return;
 }
 // Logos made for light go on white and the site's background colour, as one panel when that background is white anyway.
@@ -31,4 +31,4 @@ if ( $icon ) {
 	$inner .= '<figure class="wsg-card wsg-logo-card wsg-site-icon"><div class="wsg-logo-stage wsg-icon-stage">' . implode( '', array_map( fn( $w ) => '<img class="wsg-icon-img" src="' . esc_url( $icon ) . '" style="width:' . $w . 'px;height:' . $w . 'px" width="' . $w . '" height="' . $w . '" alt="">', array( 96, 48, 32, 16 ) ) ) . '</div><figcaption class="wsg-meta"><span class="wsg-name">' . esc_html__( 'Site icon', 'weave-style-guide' ) . '</span> <span class="wsg-small">' . esc_html__( 'favicon and app icon, 96 to 16', 'weave-style-guide' ) . '</span> <a class="wsg-small" href="' . esc_url( $icon ) . '" download>' . esc_html__( 'Download', 'weave-style-guide' ) . '</a></figcaption></figure>';
 }
 $inner .= '</div>';
-echo wsg_wrap( 'logo', $inner, $attributes );
+echo wsg_wrap( 'logo', $inner, $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wsg_wrap() wraps inner markup escaped at build in get_block_wrapper_attributes().

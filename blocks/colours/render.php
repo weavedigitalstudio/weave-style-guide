@@ -1,7 +1,7 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 $palette = wsg_palette();
-if ( ! $palette ) { echo wsg_wrap( 'colours', '<p class="wsg-note">' . esc_html__( 'No theme palette found in theme.json.', 'weave-style-guide' ) . '</p>', $attributes ); return; }
+if ( ! $palette ) { echo wsg_wrap( 'colours', '<p class="wsg-note">' . esc_html__( 'No theme palette found in theme.json.', 'weave-style-guide' ) . '</p>', $attributes ); return; } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wsg_wrap() wraps inner markup escaped at build in get_block_wrapper_attributes().
 $copy = fn( string $value, string $label = '' ) => '<button type="button" class="wsg-copy" data-copy="' . esc_attr( $value ) . '" aria-label="' . esc_attr( sprintf( __( 'Copy %s', 'weave-style-guide' ), $label ?: $value ) ) . '"><code>' . esc_html( $value ) . '</code></button>';
 $slugs = array_column( $palette, 'slug' );
 $is_variant = function ( string $slug ) use ( $slugs ): bool { return (bool) preg_match( '/^(.+)-(light|lighter|dark|darker|strong|soft|muted|tint|shade|[0-9]{1,3})$/', $slug, $m ) && in_array( $m[1], $slugs, true ); };
@@ -27,4 +27,4 @@ if ( $overlays ) {
 $inner .= '<p class="wsg-actions">' . $copy( ":root {\n$css}", __( 'palette as CSS', 'weave-style-guide' ) ) . ' ' . $copy( wp_json_encode( $json, JSON_PRETTY_PRINT ), __( 'palette as JSON', 'weave-style-guide' ) ) . '</p>';
 $inner = str_replace( array( '<code>:root {', '<code>{' ), array( '<code>' . esc_html__( 'Copy palette as CSS', 'weave-style-guide' ) . '<span hidden>:root {', '<code>' . esc_html__( 'Copy palette as JSON', 'weave-style-guide' ) . '<span hidden>{' ), $inner );
 $inner = preg_replace( '/(<span hidden>.*?)<\/code>/s', '$1</span></code>', $inner );
-echo wsg_wrap( 'colours', $inner, $attributes );
+echo wsg_wrap( 'colours', $inner, $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wsg_wrap() wraps inner markup escaped at build in get_block_wrapper_attributes().

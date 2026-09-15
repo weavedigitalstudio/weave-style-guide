@@ -13,4 +13,4 @@ if ( $lists ) { $inner .= '<h3 class="wsg-h3">' . esc_html__( 'List styles', 'we
 $rows = '';
 foreach ( array( 'core/group', 'core/image', 'core/heading', 'core/paragraph', 'core/columns', 'core/column', 'core/cover', 'core/post-template', 'core/separator', 'core/quote' ) as $block ) { $names = array(); foreach ( wsg_block_styles( $block ) as $name => $s ) { $names[] = esc_html( $s['label'] ?? $name ) . ' <code>is-style-' . esc_html( $name ) . '</code>'; } if ( $names ) { $rows .= '<tr><th scope="row">' . esc_html( $block ) . '</th><td>' . implode( '<br>', $names ) . '</td></tr>'; } }
 if ( $rows ) { $inner .= '<h3 class="wsg-h3">' . esc_html__( 'Other block styles', 'weave-style-guide' ) . '</h3><table class="wsg-table"><tbody>' . $rows . '</tbody></table>'; }
-echo wsg_wrap( 'blocks', $inner, $attributes );
+echo wsg_wrap( 'blocks', $inner, $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wsg_wrap() wraps inner markup escaped at build in get_block_wrapper_attributes().

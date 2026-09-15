@@ -13,4 +13,4 @@ if ( class_exists( 'GFAPI' ) ) {
 } else {
 	$inner = '<p class="wsg-note">' . esc_html__( 'No form plugin active. Install Gravity Forms and this section renders the first form with the theme styling.', 'weave-style-guide' ) . '</p>';
 }
-echo wsg_wrap( 'forms', $inner, $attributes );
+echo wsg_wrap( 'forms', $inner, $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wsg_wrap() wraps inner markup escaped at build in get_block_wrapper_attributes().

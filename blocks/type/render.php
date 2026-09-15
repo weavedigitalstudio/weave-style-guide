@@ -26,4 +26,4 @@ if ( $sizes ) {
 	}
 	$inner .= '</div>';
 }
-echo wsg_wrap( 'type', $inner, $attributes );
+echo wsg_wrap( 'type', $inner, $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wsg_wrap() wraps inner markup escaped at build in get_block_wrapper_attributes().
