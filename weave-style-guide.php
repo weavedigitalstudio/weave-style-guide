@@ -3,7 +3,7 @@
  * Plugin Name:       Weave Style Guide
  * Plugin URI:        https://github.com/weavedigitalstudio/weave-style-guide
  * Description:       An auto-generated styles page for block themes: logo, colours, type, spacing, buttons and block styles, icons, patterns, contrast and helper classes, all read from the live theme so nothing on the page is typed in.
- * Version:           0.1.1
+ * Version:           0.1.2
  * Requires at least: 7.1
  * Requires PHP:      8.1
  * Author:            Weave Digital Studio
@@ -15,7 +15,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WSG_VERSION', '0.1.1' );
+define( 'WSG_VERSION', '0.1.2' );
 define( 'WSG_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WSG_URL', plugin_dir_url( __FILE__ ) );
 

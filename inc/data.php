@@ -53,6 +53,21 @@ function wsg_logos(): array {
 			$out[ $slug ] = array( 'label' => ucfirst( $slug ), 'html' => (string) file_get_contents( $file ), 'url' => get_theme_file_uri( "assets/logo/$slug.svg" ), 'surface' => $surface );
 		}
 	}
+	// The Site Logo is usually one of the theme's files uploaded again. When it is the same file (identical
+	// bytes, or the same name give or take WordPress's -1 suffix), it shows once, on that file's card.
+	$site_file = $logo_id ? (string) get_attached_file( $logo_id ) : '';
+	if ( isset( $out['site'] ) && '' !== $site_file ) {
+		$name = fn( string $path ): string => (string) preg_replace( '/-\d+(?=\.[a-z0-9]+$)/i', '', strtolower( wp_basename( $path ) ) );
+		foreach ( array( 'primary', 'reversed', 'mark' ) as $slug ) {
+			if ( ! isset( $out[ $slug ] ) ) { continue; }
+			$theme_file = get_theme_file_path( "assets/logo/$slug.svg" );
+			if ( $name( $site_file ) === $name( $theme_file ) || ( is_readable( $site_file ) && md5_file( $site_file ) === md5_file( $theme_file ) ) ) {
+				$out[ $slug ]['also'] = __( 'Also the Site Logo', 'weave-style-guide' );
+				unset( $out['site'] );
+				break;
+			}
+		}
+	}
 	return $out;
 }
 
