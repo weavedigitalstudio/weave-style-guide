@@ -41,7 +41,7 @@ p.wsg-version{font-size:1rem;color:var(--wp--preset--color--text-muted,#666);mar
 .wsg-stage-label{position:absolute;left:.6rem;bottom:.45rem;font-size:.6875rem;line-height:1;opacity:.7}
 .wsg-logo-stage svg{max-width:240px;max-height:96px;width:auto;height:auto}
 .wsg-logo-stage img{display:block;width:100%;max-width:220px;height:80px;object-fit:contain}
-.wsg-logo-card figcaption{padding:.75rem 1rem;background:var(--wp--preset--color--surface,#fff);color:var(--wp--preset--color--text,#111);border-top:1px solid var(--wp--preset--color--border,#ddd)}
+.wsg-logo-card figcaption{padding:.75rem 1rem;background:var(--wp--preset--color--surface,#fff);color:var(--wp--preset--color--text-body,var(--wp--preset--color--text,#111));border-top:1px solid var(--wp--preset--color--border,#ddd)}
 .wsg-icon{display:flex;flex-direction:column;align-items:center;gap:.5rem;padding:1rem .5rem;cursor:pointer;font:inherit;color:inherit}
 .wsg-icon svg{fill:currentColor}
 .wsg-scroll{overflow-x:auto}
@@ -54,7 +54,7 @@ p.wsg-version{font-size:1rem;color:var(--wp--preset--color--text-muted,#666);mar
 .wsg-table{width:100%;border-collapse:collapse}.wsg-table th,.wsg-table td{text-align:left;padding:.5rem;border-bottom:1px solid var(--wp--preset--color--border,#ddd);vertical-align:top}
 .wsg-pattern{margin-block:var(--wp--preset--spacing--40,2rem)}
 .wsg-pattern-render{border:1px solid var(--wp--preset--color--border,#ddd);border-radius:var(--wp--custom--radius--panel,8px);overflow:hidden}
-#wsg-toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,1rem);background:var(--wp--preset--color--text,#111);color:var(--wp--preset--color--surface,#fff);padding:.5rem 1rem;border-radius:999px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:100}
+#wsg-toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,1rem);background:var(--wp--preset--color--text-body,var(--wp--preset--color--text,#111));color:var(--wp--preset--color--surface,#fff);padding:.5rem 1rem;border-radius:999px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:100}
 #wsg-toast.is-visible{opacity:1;transform:translate(-50%,0)}
 .wsg-pattern>summary{cursor:pointer;list-style:none;padding:.75rem 0;border-bottom:1px solid var(--wp--preset--color--border,#ddd)}
 .wsg-pattern>summary::before{content:'+ ';font-weight:600}.wsg-pattern[open]>summary::before{content:'\2212  '}
