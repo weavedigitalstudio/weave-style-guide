@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "weave-style-guide/dark-mode",
+  "title": "Style guide: Dark mode",
+  "category": "design",
+  "icon": "visibility",
+  "description": "The colours that change in dark mode, light and dark side by side, which sections go dark, and text contrast in both modes. Read from theme.json settings.custom.dark.",
+  "textdomain": "weave-style-guide",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {},
+  "render": "file:./render.php",
+  "style": "wsg"
+}

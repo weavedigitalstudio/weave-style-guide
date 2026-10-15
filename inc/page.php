@@ -10,6 +10,7 @@ function wsg_page_content(): string {
 		'<!-- wp:weave-style-guide/version {"align":"wide"} /-->',
 		$h( __( 'Logo', 'weave-style-guide' ) ), '<!-- wp:weave-style-guide/logo {"align":"wide"} /-->',
 		$h( __( 'Colours', 'weave-style-guide' ) ), '<!-- wp:weave-style-guide/colours {"align":"wide"} /-->',
+		...( wsg_dark_values() ? array( $h( __( 'Dark mode', 'weave-style-guide' ) ), '<!-- wp:weave-style-guide/dark-mode {"align":"wide"} /-->' ) : array() ),
 		$h( __( 'Fonts', 'weave-style-guide' ) ), '<!-- wp:weave-style-guide/type {"align":"wide"} /-->',
 		$h( __( 'Spacing', 'weave-style-guide' ) ), '<!-- wp:weave-style-guide/spacing {"align":"wide"} /-->',
 		$h( __( 'Buttons and block styles', 'weave-style-guide' ) ), '<!-- wp:weave-style-guide/blocks {"align":"wide"} /-->',

@@ -9,7 +9,7 @@ $card = function ( array $c ) use ( &$css, &$json, $copy ): string {
 	$hex = strtoupper( $c['color'] ); $rgb = wsg_hex_to_rgb( $hex ); $hsl = $rgb ? wsg_rgb_to_hsl( $rgb ) : null; $var = wsg_css_var( 'color', $c['slug'] );
 	$border = $rgb && wsg_needs_border( $hex ) ? ' wsg-has-border' : '';
 	$css .= "  --wp--preset--color--{$c['slug']}: $hex;\n"; $json[ $c['slug'] ] = array( 'name' => $c['name'], 'hex' => $hex, 'rgb' => $rgb, 'hsl' => $hsl );
-	return '<div class="wsg-card wsg-colour' . $border . '"><div class="wsg-swatch" style="background:' . esc_attr( $var ) . '"></div><p class="wsg-colour-name wsg-name">' . esc_html( $c['name'] ) . '</p><div class="wsg-values">' . $copy( $hex ) . ( $rgb ? $copy( sprintf( 'rgb(%d %d %d)', ...$rgb ) ) : '' ) . ( $hsl ? $copy( sprintf( 'hsl(%d %d%% %d%%)', ...$hsl ) ) : '' ) . $copy( $var, $c['slug'] ) . '</div></div>';
+	return '<div class="wsg-card wsg-colour' . $border . '"><div class="wsg-swatch" style="background:' . esc_attr( $hex ) . '"></div><p class="wsg-colour-name wsg-name">' . esc_html( $c['name'] ) . '</p><div class="wsg-values">' . $copy( $hex ) . ( $rgb ? $copy( sprintf( 'rgb(%d %d %d)', ...$rgb ) ) : '' ) . ( $hsl ? $copy( sprintf( 'hsl(%d %d%% %d%%)', ...$hsl ) ) : '' ) . $copy( $var, $c['slug'] ) . '</div></div>';
 };
 $css = ''; $json = array(); $overlays = array(); $mains = ''; $variants = '';
 foreach ( $palette as $c ) {
@@ -21,7 +21,7 @@ if ( $variants ) { $inner .= '<h3 class="wsg-h3">' . esc_html__( 'Tints and vari
 if ( $overlays ) {
 	$inner .= '<h3 class="wsg-h3">' . esc_html__( 'Overlays', 'weave-style-guide' ) . '</h3><p class="wsg-meta">' . esc_html__( 'Translucent helpers for panels over photos and dark bands. Not brand colours. Shown as a panel over a dark to light band so the transparency reads.', 'weave-style-guide' ) . '</p><div class="wsg-grid wsg-grid-overlays">';
 	$dark = wsg_darkest();
-	foreach ( $overlays as $c ) { $var = wsg_css_var( 'color', $c['slug'] ); $inner .= '<div class="wsg-card wsg-colour"><div class="wsg-overlay-stage" style="background:linear-gradient(90deg,' . esc_attr( $dark ) . ' 0%,' . esc_attr( $dark ) . ' 30%,' . esc_attr( wsg_accent() ) . ' 60%,#ffffff 100%)"><span class="wsg-overlay-panel" style="background:' . esc_attr( $var ) . '"></span></div><p class="wsg-colour-name wsg-name">' . esc_html( $c['name'] ) . '</p><div class="wsg-values">' . $copy( $c['color'] ) . $copy( $var, $c['slug'] ) . '</div></div>'; }
+	foreach ( $overlays as $c ) { $var = wsg_css_var( 'color', $c['slug'] ); $inner .= '<div class="wsg-card wsg-colour"><div class="wsg-overlay-stage" style="background:linear-gradient(90deg,' . esc_attr( $dark ) . ' 0%,' . esc_attr( $dark ) . ' 30%,' . esc_attr( wsg_accent() ) . ' 60%,#ffffff 100%)"><span class="wsg-overlay-panel" style="background:' . esc_attr( $c['color'] ) . '"></span></div><p class="wsg-colour-name wsg-name">' . esc_html( $c['name'] ) . '</p><div class="wsg-values">' . $copy( $c['color'] ) . $copy( $var, $c['slug'] ) . '</div></div>'; }
 	$inner .= '</div>';
 }
 $inner .= '<p class="wsg-actions">' . $copy( ":root {\n$css}", __( 'palette as CSS', 'weave-style-guide' ) ) . ' ' . $copy( wp_json_encode( $json, JSON_PRETTY_PRINT ), __( 'palette as JSON', 'weave-style-guide' ) ) . '</p>';

@@ -98,6 +98,22 @@ function wsg_element_typography( string $element ): array {
 	return $t;
 }
 
+/**
+ * Dark mode values, slug => value, from theme.json settings.custom.dark (the weave-site-functions
+ * dark mode module reads the same key). Palette slugs only.
+ */
+function wsg_dark_values(): array {
+	$dark = wsg_custom()['dark'] ?? array();
+	if ( ! is_array( $dark ) ) { return array(); }
+	$slugs = array_column( wsg_palette(), 'color', 'slug' );
+	return array_filter( $dark, fn( $v, $slug ) => isset( $slugs[ $slug ] ) && is_string( $v ) && '' !== $v, ARRAY_FILTER_USE_BOTH );
+}
+
+/** A global styles colour (var:preset|color|x or var(--wp--preset--color--x)) as its palette slug, or ''. */
+function wsg_style_slug( $value ): string {
+	return is_string( $value ) && preg_match( '/^(?:var\(--wp--preset--color--([a-z0-9-]+)\)|var:preset\|color\|([a-z0-9-]+))$/i', trim( $value ), $m ) ? ( '' !== $m[1] ? $m[1] : $m[2] ) : '';
+}
+
 function wsg_css_var( string $type, string $slug ): string { return "var(--wp--preset--$type--$slug)"; }
 
 /** The darkest solid colour in the palette, as a hex string (for dark stages). */

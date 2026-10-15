@@ -2,7 +2,7 @@
 
 An auto-generated styles page for block themes. One page at `/styles/` (noindex) made of nine server-rendered blocks that read the live theme when the page loads: nothing on it is typed in, so it cannot drift from the theme.
 
-Sections, in the order the page uses them: intro line, logo, colours, type, spacing, buttons and block styles, icons, contrast, patterns.
+Sections, in the order the page uses them: intro line, logo, colours, dark mode (only when the theme has one), type, spacing, buttons and block styles, icons, contrast, patterns.
 
 ## Install
 
@@ -24,6 +24,7 @@ The page is a pattern (`weave-style-guide/page`), so it can also be inserted by 
 | version | One intro line saying the page is read from the site when it loads. The block keeps the name `version` so existing pages don't break |
 | logo | Site Logo plus `assets/logo/primary.svg`, `reversed.svg`, `mark.svg` in the theme, with download links. Logos go on white and on the site's background colour (`surface`, or the global styles background when the theme has no `surface`), as one panel when that background is white. `reversed.svg` is made for dark, so it sits on `surface-inverse` |
 | colours | `settings.color.palette.theme`: swatch, name, hex, RGB, HSL, CSS custom property, click to copy; copy the palette as CSS or JSON |
+| dark-mode | `settings.custom.dark` (the weave-site-functions dark mode): each colour that changes, light and dark side by side; which section backgrounds go dark; the theme's body, heading and link colours checked on the page and those backgrounds in both modes. Shown only when the theme has dark values |
 | type | `fontFamilies`, `fontSizes` (desktop and mobile range for fluid sizes) on real text; h1 to h6 and body as global styles set them |
 | spacing | `spacingSizes` as bars; `custom.radius` if present |
 | blocks | Core Buttons in every registered style, List styles rendered, other block styles by block |
